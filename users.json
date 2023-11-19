@@ -1,0 +1,41 @@
+[
+  {
+    "id": 1087968824,
+    "username": "GroupAnonymousBot",
+    "first_name": "Group",
+    "chatId": -1002089142840,
+    "storage": []
+  },
+  {
+    "id": 1940578600,
+    "username": "manager_weebdevs",
+    "first_name": "🇵🇸",
+    "chatId": -1002089142840,
+    "storage": [
+      {
+        "_id": "6559128e2422377c6e02fc14",
+        "Img": [
+          {
+            "Image1": "1.png",
+            "Image2": "1.png",
+            "Image3": "1.png",
+            "Image4": "1.png"
+          }
+        ],
+        "Title": "1",
+        "Desc": "1",
+        "Price": -1,
+        "Sales": 0,
+        "Category": "1",
+        "__v": 0
+      }
+    ]
+  },
+  {
+    "id": 6501114398,
+    "username": "giftshopping_admin",
+    "first_name": "Admin *",
+    "chatId": 6501114398,
+    "storage": []
+  }
+]

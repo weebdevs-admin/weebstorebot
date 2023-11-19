@@ -448,14 +448,7 @@ bot.on('message', async (msg) => {
     bot.sendMessage(chatId, `<b>⏳ Ishga tushgan vaqt: 13.11.2023\n📊 Telegram bot: ${users.length} foydalanuvchi\n📈 Vebsayt: ${response.data.length} foydalanuvchi</b>`, {
       parse_mode: "HTML"
     })
-  } else {
-    return bot.sendMessage(
-      chatId,
-      `<b>😐 Afsuski ${msg.text}ni topa olmadim</b>`, {
-        parse_mode: 'HTML'
-      }
-    );
-  }
+  } 
 });
 
 // Handle callback queries

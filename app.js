@@ -29,7 +29,7 @@ const commands = [{
     description: '♻️ Botni qayta ishga tushirish'
   },
   {
-    command: '/info',
+    command: 'https://goldentre.ru',
     description: '💡 Biz haqimizda'
   },
   {
@@ -93,9 +93,9 @@ bot.on('message', async (msg) => {
   }
   let selectDashboard = false
   if (msg.text === '/dashboard') {
-    const usersApi = 'http://185.139.70.149:443/user';
-    const contactApi = 'http://185.139.70.149:443/contactform';
-    const paymentApi = 'http://185.139.70.149:443/payment';
+    const usersApi = 'https://goldentre.ru/user';
+    const contactApi = 'https://goldentre.ru/contactform';
+    const paymentApi = 'https://goldentre.ru/payment';
     const groupChatId = msg.chat.id;
     let previousUsers = [];
     let userID = msg.from.id
@@ -267,7 +267,7 @@ bot.on('message', async (msg) => {
         parse_mode: "HTML"
       });
     }
-  } else if (msg.text === '/start') {
+  } else if (msg.text === '/start'|| msg.text === '/start@giftshoppingbot') {
     await bot.sendMessage(
       chatId,
       `<b>Assalomu alaykum ${msg.from.first_name}\nSizni onlayn do'konimizda ko'rib turganimdan xursandman!</b>`, {
@@ -278,7 +278,7 @@ bot.on('message', async (msg) => {
       parse_mode: 'HTML',
       ...menuOptions,
     });
-  } else if (msg.text === '/info') {
+  } else if (msg.text === '/info' || msg.text === '/info@giftshoppingbot') {
     const inlineKeyboardOptions = {
       reply_markup: {
         inline_keyboard: [
@@ -289,12 +289,12 @@ bot.on('message', async (msg) => {
         ],
       },
     };
-    const response = await axios.get('http://185.139.70.149:443/abaut')
+    const response = await axios.get('https://goldentre.ru/abaut')
     bot.sendMessage(chatId, `✅ <b>${response.data[0].Title}\n\n🎙 ${response.data[0].Desc}</b>`, {
       parse_mode: "HTML",
       ...inlineKeyboardOptions
     })
-  } else if (msg.text === '/devs') {
+  } else if (msg.text === '/devs' || msg.text === '/devs@giftshoppingbot') {
     const inlineKeyboardOptions = {
       reply_markup: {
         inline_keyboard: [
@@ -344,7 +344,7 @@ bot.on('message', async (msg) => {
           },
         };
 
-        const image = fs.readFileSync(`../weebstoreserver/uploads/${e.Img[0].Image1}`)
+        const image = `https://goldentre.ru/uploads/${e.Img[0].Image1}`
         bot.sendPhoto(chatId, image, {
           caption: `<b>${e.Title}\n${e.Desc}\nNarxi: ${e.Price} So'm\nSotildi: ${e.Sales} dona\nKategoriya: ${e.Category}</b>`,
           parse_mode: 'HTML',
@@ -366,11 +366,11 @@ bot.on('message', async (msg) => {
       parse_mode: 'HTML'
     });
   } else if (isSearching) {
-    let response = await axios.get('http://185.139.70.149:443/product')
+    let response = await axios.get('https://goldentre.ru/product')
     let searchProduct = filteredProducts = response.data.filter((e) => e.Title.toLowerCase().startsWith(msg.text.toLowerCase()));
     if (searchProduct.length) {
       searchProduct.map((e) => {
-        let image = fs.readFileSync(`../weebstoreserver/uploads/${e.Img[0].Image1}`)
+        let image = `https://goldentre.ru/uploads/${e.Img[0].Image1}`
         function sendImages() {
           const inlineKeyboardOptions = {
             reply_markup: {
@@ -413,7 +413,7 @@ bot.on('message', async (msg) => {
       parse_mode: "HTML"
     })
   } else if (msg.text === '☎️ Bog\'lanish') {
-    let data = await axios.get('http://185.139.70.149:443/contact')
+    let data = await axios.get('https://goldentre.ru/contact')
     // Async function to send location and contact information
     async function sendLocationAndContactInfo(chatId, locationData) {
 
@@ -444,11 +444,13 @@ bot.on('message', async (msg) => {
 
 
   } else if (msg.text === '📊 Statistika') {
-    let response = await axios.get('http://185.139.70.149:443/user')
+    let response = await axios.get('https://goldentre.ru/user')
     bot.sendMessage(chatId, `<b>⏳ Ishga tushgan vaqt: 13.11.2023\n📊 Telegram bot: ${users.length} foydalanuvchi\n📈 Vebsayt: ${response.data.length} foydalanuvchi</b>`, {
       parse_mode: "HTML"
     })
-  } 
+  } else{
+    return
+  }
 });
 
 // Handle callback queries
@@ -466,7 +468,7 @@ bot.on('callback_query', async (callbackQuery) => {
     }
 
     try {
-      const response = await axios.get('http://185.139.70.149:443/product');
+      const response = await axios.get('https://goldentre.ru/product');
       if (!response.data) {
         throw new Error('Mahsulot ma\'lumotlarini olishda xato: Javob ma\'lumotlari bo\'sh yoki aniqlanmagan.');
       }
@@ -477,7 +479,7 @@ bot.on('callback_query', async (callbackQuery) => {
 
       if (filteredProducts.length > 0) {
         filteredProducts.forEach((findProduct) => {
-          const imagePaths = fs.readFileSync(`../weebstoreserver/uploads/${findProduct.Img[0].Image1}`)
+          const imagePaths = `https://goldentre.ru/uploads/${findProduct.Img[0].Image1}`
 
           function sendImages() {
             const inlineKeyboardOptions = {

@@ -4,7 +4,7 @@ let a = [];
 // Async function to fetch data and update array
 async function fetchDataAndUpdateArray() {
     try {
-        const response = await axios.get('http://185.139.70.149:443/product');
+        const response = await axios.get('https://goldentre.ru/product');
         const data = response.data;
 
         // Keep track of added categories to avoid duplicates

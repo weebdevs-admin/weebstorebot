@@ -236,6 +236,7 @@ bot.on('message', async (msg) => {
 
                 message += `<b>✨ Buyurtmangizning umumiy narxi:</b> ${payment.Price} so'm\n`;
                 message += `<b>👤 Ismi:</b> ${payment.Firstname}\n`;
+                message += `<b>📍 Manzili:</b> ${payment.Address}\n`;
                 message += `<b>📞 Telefon raqami:</b> ${payment.Phonenumber}\n`;
                 message += `<b>⏳ Sana:</b> ${payment.Date}\n`;
 

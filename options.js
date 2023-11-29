@@ -4,7 +4,7 @@ let a = [];
 // Async function to fetch data and update array
 async function fetchDataAndUpdateArray() {
     try {
-        const response = await axios.get('https://goldentre.ru/product');
+        const response = await axios.get('https://emakfood.hopto.org/product');
         const data = response.data;
 
         // Keep track of added categories to avoid duplicates
@@ -35,7 +35,7 @@ setInterval(fetchDataAndUpdateArray, 2000);
 const menuOptions = {
     reply_markup: JSON.stringify({
         keyboard: [
-            [{ text: '🛍 Mahsulotlar', callback_data: '🛍 Mahsulotlar' }, { text: '🔍 Izlash', callback_data: '🔍 Izlash' }],
+            [{ text: '🍔 Menyu', callback_data: '🛍 Mahsulotlar' }, { text: '🔍 Izlash', callback_data: '🔍 Izlash' }],
             [{ text: '🛒 Savat', callback_data: '🛒 Savat' }, { text: '👤 Hisobim', callback_data: '👤 Hisobim' }],
             [{ text: '☎️ Bog\'lanish', callback_data: '☎️ Bog\'lanish' }, { text: '📊 Statistika', callback_data: '📊 Statistika' }],
         ],

@@ -29,7 +29,7 @@ const commands = [{
     description: '♻️ Botni qayta ishga tushirish'
   },
   {
-    command: 'https://goldentre.ru',
+    command: '/info',
     description: '💡 Biz haqimizda'
   },
   {
@@ -93,9 +93,9 @@ bot.on('message', async (msg) => {
   }
   let selectDashboard = false
   if (msg.text === '/dashboard') {
-    const usersApi = 'https://goldentre.ru/user';
-    const contactApi = 'https://goldentre.ru/contactform';
-    const paymentApi = 'https://goldentre.ru/payment';
+    const usersApi = 'https://emakfood.hopto.org/user';
+    const contactApi = 'https://emakfood.hopto.org/contactform';
+    const paymentApi = 'https://emakfood.hopto.org/payment';
     const groupChatId = msg.chat.id;
     let previousUsers = [];
     let userID = msg.from.id
@@ -229,7 +229,7 @@ bot.on('message', async (msg) => {
 
                   payment.Products.forEach((product) => {
                     message += `🔹 <b>${product.Title}</b>\n`;
-                    message += `<b>🔗 Mahsulot manzili:</b> https://giftshopping.uz/product/${product.Id}\n`;
+                    message += `<b>🔗 Mahsulot manzili:</b> https://emakfood.uz/product/${product.Id}\n`;
                     message += `<b>💸 Narxi:</b> ${product.Price} so'm\n\n`;
                   });
                 }
@@ -268,10 +268,10 @@ bot.on('message', async (msg) => {
         parse_mode: "HTML"
       });
     }
-  } else if (msg.text === '/start'|| msg.text === '/start@giftshoppingbot') {
+  } else if (msg.text === '/start'|| msg.text === '/start@emakfoodbot') {
     await bot.sendMessage(
       chatId,
-      `<b>Assalomu alaykum ${msg.from.first_name}\nSizni onlayn do'konimizda ko'rib turganimdan xursandman!</b>`, {
+      `<b>Assalomu alaykum ${msg.from.first_name}\nSizni ko'rib turganimdan xursandman!</b>`, {
         parse_mode: 'HTML'
       }
     );
@@ -279,23 +279,23 @@ bot.on('message', async (msg) => {
       parse_mode: 'HTML',
       ...menuOptions,
     });
-  } else if (msg.text === '/info' || msg.text === '/info@giftshoppingbot') {
+  } else if (msg.text === '/info' || msg.text === '/info@emakfoodbot') {
     const inlineKeyboardOptions = {
       reply_markup: {
         inline_keyboard: [
           [{
             text: '🌐 Rasmiy vebsayt',
-            url: `https://giftshopping.uz/`
+            url: `https://emakfood.uz/`
           }, ],
         ],
       },
     };
-    const response = await axios.get('https://goldentre.ru/abaut')
+    const response = await axios.get('https://emakfood.hopto.org/abaut')
     bot.sendMessage(chatId, `✅ <b>${response.data[0].Title}\n\n🎙 ${response.data[0].Desc}</b>`, {
       parse_mode: "HTML",
       ...inlineKeyboardOptions
     })
-  } else if (msg.text === '/devs' || msg.text === '/devs@giftshoppingbot') {
+  } else if (msg.text === '/devs' || msg.text === '/devs@emakfoodbot') {
     const inlineKeyboardOptions = {
       reply_markup: {
         inline_keyboard: [
@@ -316,7 +316,7 @@ bot.on('message', async (msg) => {
       parse_mode: "HTML",
       ...inlineKeyboardOptions
     })
-  } else if (msg.text === '🛍 Mahsulotlar') {
+  } else if (msg.text === '🍔 Menyu') {
     setTimeout(() => {
       bot.sendMessage(chatId, `<b>🗂 Mahsulot kategoriyasini tanlang </b>`, {
         parse_mode: 'HTML',
@@ -338,14 +338,14 @@ bot.on('message', async (msg) => {
                 },
                 {
                   text: '🛍 Sotib olish',
-                  url: `https://giftshopping.uz/product/${e._id}`
+                  url: `https://emakfood.uz/product/${e._id}`
                 },
               ],
             ],
           },
         };
 
-        const image = `https://goldentre.ru/uploads/${e.Img[0].Image1}`
+        const image = `https://emakfood.hopto.org/uploads/${e.Img[0].Image1}`
         bot.sendPhoto(chatId, image, {
           caption: `<b>${e.Title}\n${e.Desc}\nNarxi: ${e.Price} So'm\nSotildi: ${e.Sales} dona\nKategoriya: ${e.Category}</b>`,
           parse_mode: 'HTML',
@@ -367,11 +367,11 @@ bot.on('message', async (msg) => {
       parse_mode: 'HTML'
     });
   } else if (isSearching) {
-    let response = await axios.get('https://goldentre.ru/product')
+    let response = await axios.get('https://emakfood.hopto.org/product')
     let searchProduct = filteredProducts = response.data.filter((e) => e.Title.toLowerCase().startsWith(msg.text.toLowerCase()));
     if (searchProduct.length) {
       searchProduct.map((e) => {
-        let image = `https://goldentre.ru/uploads/${e.Img[0].Image1}`
+        let image = `https://emakfood.hopto.org/uploads/${e.Img[0].Image1}`
         function sendImages() {
           const inlineKeyboardOptions = {
             reply_markup: {
@@ -382,7 +382,7 @@ bot.on('message', async (msg) => {
                   },
                   {
                     text: '🛍 Sotib olish',
-                    url: `https://giftshopping.uz/product/${e._id}`
+                    url: `https://emakfood.uz/product/${e._id}`
                   },
                 ],
               ],
@@ -414,7 +414,7 @@ bot.on('message', async (msg) => {
       parse_mode: "HTML"
     })
   } else if (msg.text === '☎️ Bog\'lanish') {
-    let data = await axios.get('https://goldentre.ru/contact')
+    let data = await axios.get('https://emakfood.hopto.org/contact')
     // Async function to send location and contact information
     async function sendLocationAndContactInfo(chatId, locationData) {
 
@@ -424,7 +424,7 @@ bot.on('message', async (msg) => {
           inline_keyboard: [
             [{
               text: '🌐 Rasmiy vebsayt',
-              url: 'https://giftshopping.uz/product',
+              url: 'https://emakfood.uz/product',
             }],
           ],
         },
@@ -445,7 +445,7 @@ bot.on('message', async (msg) => {
 
 
   } else if (msg.text === '📊 Statistika') {
-    let response = await axios.get('https://goldentre.ru/user')
+    let response = await axios.get('https://emakfood.hopto.org/user')
     bot.sendMessage(chatId, `<b>⏳ Ishga tushgan vaqt: 13.11.2023\n📊 Telegram bot: ${users.length} foydalanuvchi\n📈 Vebsayt: ${response.data.length} foydalanuvchi</b>`, {
       parse_mode: "HTML"
     })
@@ -469,7 +469,7 @@ bot.on('callback_query', async (callbackQuery) => {
     }
 
     try {
-      const response = await axios.get('https://goldentre.ru/product');
+      const response = await axios.get('https://emakfood.hopto.org/product');
       if (!response.data) {
         throw new Error('Mahsulot ma\'lumotlarini olishda xato: Javob ma\'lumotlari bo\'sh yoki aniqlanmagan.');
       }
@@ -480,7 +480,7 @@ bot.on('callback_query', async (callbackQuery) => {
 
       if (filteredProducts.length > 0) {
         filteredProducts.forEach((findProduct) => {
-          const imagePaths = `https://goldentre.ru/uploads/${findProduct.Img[0].Image1}`
+          const imagePaths = `https://emakfood.hopto.org/uploads/${findProduct.Img[0].Image1}`
 
           function sendImages() {
             const inlineKeyboardOptions = {
@@ -492,7 +492,7 @@ bot.on('callback_query', async (callbackQuery) => {
                     },
                     {
                       text: '🛍 Sotib olish',
-                      url: `https://giftshopping.uz/product/${findProduct._id}`
+                      url: `https://emakfood.uz/product/${findProduct._id}`
                     },
                   ],
                 ],

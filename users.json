@@ -4,6 +4,31 @@
     "username": "manager_weebdevs",
     "first_name": "🇵🇸",
     "chatId": -4093363397,
+    "storage": [
+      {
+        "_id": "656b45fed0594175ae7d394f",
+        "Img": [
+          {
+            "Image1": "image-removebg-preview (31).png",
+            "Image2": "image-removebg-preview (31).png",
+            "Image3": "image-removebg-preview (31).png",
+            "Image4": "image-removebg-preview (31).png"
+          }
+        ],
+        "Title": "Samsung B311 GSM",
+        "Desc": "Samsung B311 GSM. Mavjud: 219 dona.",
+        "Price": 400000,
+        "Sales": 0,
+        "Category": "Samsung",
+        "__v": 0
+      }
+    ]
+  },
+  {
+    "id": 2097088542,
+    "username": "DesigneD_By_Muslim",
+    "first_name": ".",
+    "chatId": 2097088542,
     "storage": []
   }
 ]

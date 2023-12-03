@@ -229,7 +229,7 @@ bot.on('message', async (msg) => {
 
                   payment.Products.forEach((product) => {
                     message += `🔹 <b>${product.Title}</b>\n`;
-                    message += `<b>🔗 Mahsulot manzili:</b> https://emakfood.uz/product/${product.Id}\n`;
+                    message += `<b>🔗 Mahsulot manzili:</b> https://akaukamobile.uz/product/${product.Id}\n`;
                     message += `<b>💸 Narxi:</b> ${product.Price} so'm\n\n`;
                   });
                 }
@@ -285,7 +285,7 @@ bot.on('message', async (msg) => {
         inline_keyboard: [
           [{
             text: '🌐 Rasmiy vebsayt',
-            url: `https://emakfood.uz/`
+            url: `https://akaukamobile.uz/`
           }, ],
         ],
       },
@@ -316,7 +316,7 @@ bot.on('message', async (msg) => {
       parse_mode: "HTML",
       ...inlineKeyboardOptions
     })
-  } else if (msg.text === '🍔 Menyu') {
+  } else if (msg.text === '🛍 Mahsulotlar') {
     setTimeout(() => {
       bot.sendMessage(chatId, `<b>🗂 Mahsulot kategoriyasini tanlang </b>`, {
         parse_mode: 'HTML',
@@ -338,7 +338,7 @@ bot.on('message', async (msg) => {
                 },
                 {
                   text: '🛍 Sotib olish',
-                  url: `https://emakfood.uz/product/${e._id}`
+                  url: `https://akaukamobile.uz/product/${e._id}`
                 },
               ],
             ],
@@ -382,7 +382,7 @@ bot.on('message', async (msg) => {
                   },
                   {
                     text: '🛍 Sotib olish',
-                    url: `https://emakfood.uz/product/${e._id}`
+                    url: `https://akaukamobile.uz/product/${e._id}`
                   },
                 ],
               ],
@@ -424,7 +424,7 @@ bot.on('message', async (msg) => {
           inline_keyboard: [
             [{
               text: '🌐 Rasmiy vebsayt',
-              url: 'https://emakfood.uz/product',
+              url: 'https://akaukamobile.uz/product',
             }],
           ],
         },
@@ -492,7 +492,7 @@ bot.on('callback_query', async (callbackQuery) => {
                     },
                     {
                       text: '🛍 Sotib olish',
-                      url: `https://emakfood.uz/product/${findProduct._id}`
+                      url: `https://akaukamobile.uz/product/${findProduct._id}`
                     },
                   ],
                 ],

@@ -35,7 +35,7 @@ setInterval(fetchDataAndUpdateArray, 2000);
 const menuOptions = {
     reply_markup: JSON.stringify({
         keyboard: [
-            [{ text: '🍔 Menyu', callback_data: '🛍 Mahsulotlar' }, { text: '🔍 Izlash', callback_data: '🔍 Izlash' }],
+            [{ text: '🛍 Mahsulotlar', callback_data: '🛍 Mahsulotlar' }, { text: '🔍 Izlash', callback_data: '🔍 Izlash' }],
             [{ text: '🛒 Savat', callback_data: '🛒 Savat' }, { text: '👤 Hisobim', callback_data: '👤 Hisobim' }],
             [{ text: '☎️ Bog\'lanish', callback_data: '☎️ Bog\'lanish' }, { text: '📊 Statistika', callback_data: '📊 Statistika' }],
         ],
